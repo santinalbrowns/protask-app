@@ -6,8 +6,10 @@ import 'package:app/models/models.dart';
 import 'package:app/repo/auth_repo.dart';
 
 class TaskRepo extends AuthRepo {
-  //static const url = "https://protask-api-production.up.railway.app/api/tasks";
-  static const url = "http://localhost:5000/api/tasks";
+  static const url = "https://protask-api-production.up.railway.app/api/tasks";
+
+  /// static const url = "http://localhost:5000/api/tasks";
+  /// requires mongodb to be installed
 
   Future<Task> create({
     required String name,

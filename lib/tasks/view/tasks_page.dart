@@ -110,7 +110,16 @@ class _TasksPageState extends State<TasksPage> {
               return const Center(child: Text('No tasks available'));
             }
 
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(50),
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            );
           },
         ),
       ),

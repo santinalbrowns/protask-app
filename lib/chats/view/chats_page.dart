@@ -153,12 +153,25 @@ class ChatsPage extends StatelessWidget {
 
               if (state is ChatsError) {
                 return const SliverToBoxAdapter(
-                  child: Text('Error. Somethig went wrong!'),
+                  child: Center(
+                      child: Padding(
+                    padding: EdgeInsets.all(50.0),
+                    child: Text('Something went wrong!'),
+                  )),
                 );
               }
 
               return const SliverToBoxAdapter(
-                child: Text('Loading...'),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(50),
+                    child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
+                ),
               );
             },
           ),

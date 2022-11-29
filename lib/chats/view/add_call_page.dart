@@ -17,31 +17,10 @@ class AddCAllPage extends StatelessWidget {
         body: CustomScrollView(
           slivers: <Widget>[
             const SliverAppBar(
-              //backgroundColor: Colors.white,
-              title: Text('Select contact'),
+              title: Text('Contacts'),
               pinned: true,
               floating: true,
               elevation: 0,
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
-                child: ListTile(
-                  leading: const CircleAvatar(
-                    radius: 24,
-                    child: Icon(Icons.people_outline_outlined),
-                    //backgroundImage: NetworkImage(chatsData[index].image),
-                  ),
-                  title: const Text(
-                    'New team',
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  onTap: () {
-                    /* Navigator.pushReplacementNamed(
-                          context, SelectMembersPage.route); */
-                  },
-                ),
-              ),
             ),
             BlocConsumer<UsersBloc, UsersState>(
               listener: (context, state) {
@@ -68,15 +47,28 @@ class AddCAllPage extends StatelessWidget {
                   );
                 }
 
-                if (state is UsersLoading) {
+                if (state is UsersError) {
                   return const SliverToBoxAdapter(
-                    child: Text('Loading'),
-                  );
-                } else {
-                  return const SliverToBoxAdapter(
-                    child: Text('Something went wrong'),
+                    child: Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(50.0),
+                        child: Text('Something went wrong!'),
+                      ),
+                    ),
                   );
                 }
+                return const SliverToBoxAdapter(
+                  child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(50),
+                      child: SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                  ),
+                );
               },
             ),
           ],

@@ -5,8 +5,11 @@ import 'package:http/http.dart' as http;
 import 'package:app/models/user.dart';
 
 class AuthRepo {
-  //static const url = "https://protask-api-production.up.railway.app/api/users/login";
-  static const url = "http://localhost:5000/api/users/login";
+  static const url =
+      "https://protask-api-production.up.railway.app/api/users/login";
+
+  /// static const url = "http://localhost:5000/api/users/login";
+  /// requires mongodb to be installed
 
   final _storage = const FlutterSecureStorage();
 

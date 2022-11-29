@@ -6,8 +6,10 @@ import 'package:app/models/user.dart';
 import 'package:app/repo/auth_repo.dart';
 
 class UserRepo extends AuthRepo {
-  //static const url = "https://protask-api-production.up.railway.app/api/users";
-  static const url = "http://localhost:5000/api/users";
+  static const url = "https://protask-api-production.up.railway.app/api/users";
+
+  /// static const url = "http://localhost:5000/api/users";
+  /// requires mongodb to be installed
 
   Future<User> getUser() async {
     try {
